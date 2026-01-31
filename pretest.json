@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What does the saponification value represent?",
+    "answers": {
+      "a": "The amount of fatty acids in the oil/fat",
+      "b": "The average molecular weight of the glycerol in the oil/fat",
+      "c": "The amount of alkali needed to saponify 1 gram of oil/fat",
+      "d": "The number of ester bonds present in the oil/fat"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "What is the main reagent used to hydrolyze fats/oils in the determination of saponification value?",
+    "answers": {
+      "a": "Hydrochloric acid",
+      "b": "Sodium hydroxide",
+      "c": "Potassium hydroxide",
+      "d": "Sulfuric acid"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "Which indicator is commonly used in the titration step of the saponification value determination?",
+    "answers": {
+      "a": "Methyl orange",
+      "b": "Phenolphthalein",
+      "c": "Bromothymol blue",
+      "d": "Litmus"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "What is the purpose of performing a blank titration in this experiment?",
+    "answers": {
+      "a": "To calculate the excess oil/fat",
+      "b": "To account for the unreacted KOH",
+      "c": "To determine the weight of the sample",
+      "d": "To neutralize the solution before titration"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which of the following best describes saponification?",
+    "answers": {
+      "a": "Hydrolysis of an ester in an acidic medium",
+      "b": "Hydrolysis of an ester in the presence of a base",
+      "c": "Neutralization of an acid with a base",
+      "d": "Precipitation of fatty acids from oil"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "What happens to the oil/fat when it reacts with KOH?",
+    "answers": {
+      "a": "It remains unchanged",
+      "b": "It forms soap and glycerol",
+      "c": "It decomposes into glycerol and water",
+      "d": "It forms fatty acids and glycerol"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Why is alcoholic KOH used in the saponification reaction?",
+    "answers": {
+      "a": "Alcohol increases the acidity of the solution",
+      "b": "Alcohol acts as a solvent for the oil/fat",
+      "c": "Alcohol speeds up the esterification process",
+      "d": "Alcohol acts as a titration reagent"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which of the following factors can affect the saponification value of oil/fat?",
+    "answers": {
+      "a": "The chain length of fatty acids",
+      "b": "The amount of unsaturation in the fatty acids",
+      "c": "The degree of hydrolysis of the oil",
+      "d": "All of the above"
+    },
+    "correctAnswer": "d"
+  },
+  {
+    "question": "What is the unit of saponification value?",
+    "answers": {
+      "a": "mg of KOH per gram of oil/fat",
+      "b": "moles of KOH per gram of oil/fat",
+      "c": "mL of HCl per gram of oil/fat",
+      "d": "g/L of oil/fat"
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Why is reflux used during the saponification process?",
+    "answers": {
+      "a": "To dissolve the oil/fat",
+      "b": "To remove water from the solution",
+      "c": "To ensure complete reaction between oil/fat and KOH",
+      "d": "To neutralize the acidic solution"
+    },
+    "correctAnswer": "c"
+  }
+]
