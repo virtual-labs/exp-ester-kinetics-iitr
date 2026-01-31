@@ -18,6 +18,33 @@ Follow these steps to determine the saponification value of Oil/Fat by titrimetr
    W = Weight of the oil/fat sample (g)  
    56.1 = Molecular weight of KOH
 
+#### **Slide-1 Procedure**
+1. The Blank Round-Bottom flask  and Fat Round-Bottom flask containing 25 ml only alcholic KOH solution
+2. After adding (Fat/oil) Alcholic KOH solution color will be colorless.
+3. Reflux both flask(Round-Bottom ) for 30 Mint on Reflux machine
+
+#### **Slide-2 Procedure**
+1. Take 20 ml of fat solution into the Sample2 conical flask, with the help of droper.
+2. Then lets go for ading phenoptaline in both solution.
+
+#### **Slide-3 Procedure**
+1. Add few drops of phenolphthalein into sample1(Blank) solution water.
+2. The colour changes to pink.
+
+#### **Slide-4 Procedure**
+1. Add few drops of phenolphthalein into sample2(Fat) solution.
+2. The colour changes to pink.
+
+#### **Slide-5 Procedure**
+1. Set the normality of titrate(EDTA solution) and volume of titrant(Sample water solution) according to you, click start button.
+2. Fix the nozzle opening size by the nozzle open slider and shake it
+3. Titrate it till the colour changes to peacock blue
+
+#### **Slide-6 Procedure**
+1. The Flask(Sample2) containing the (1g Fat/oil + KOH ) solution.
+2. Fix the nozzle opening size by the nozzle open slider and shake it.
+3. Titrate it till the colour change, pink to colourless
+
 #### **Safety Precautions**
 
 1. Clamp the burette perfectly vertically so that it is easy to read the scale properly.  

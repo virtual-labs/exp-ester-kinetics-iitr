@@ -27,7 +27,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             class=" fa-solid fa-xl fa-maximize" style="color: #9ec1a3;"></i></button>
         <div id="video-container">
             <video id="video" width="800" height="600">
-
                 <source src="videos/intro3.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -40,19 +39,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     </div>
     <h1 class="end"></h1>
 
-
-
-
     <script>
       setTimeout(() => {
-  const skipB = document.getElementById('skipB');
+        const skipB = document.getElementById('skipB');
 
-  // 👇 removes element from DOM
-  skipB.style.display = 'block';
+        // 👇 removes element from DOM
+        skipB.style.display = 'block';
 
-  // 👇 hides element (still takes up space on page)
-  // box.style.visibility = 'hidden';
-}, 4000);
+        // 👇 hides element (still takes up space on page)
+        // box.style.visibility = 'hidden';
+      }, 4000);
         function skip(){
           window.location.href = 'StartHtml.html';
         }
