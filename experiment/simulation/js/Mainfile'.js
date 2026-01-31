@@ -67,6 +67,8 @@ let shownext = false;
 let blinking = true;
 let blinkInterval = 200;
 
+let dropIntervalID;
+
 
 
 
@@ -336,7 +338,7 @@ function changeArrowStyleToPointer() {
 //This function keeps track of all the imcrement in flask as well as decrease in burette
 function addLiquidDrop() {
   let runonce = true;
-  if (liquidLevel >= 1 && bureteTouched == true) {
+  if (liquidLevel >= 1 && bureteTouched == true  && vadded <= volume_titrant) {
     liquidLevel -=  change*size/5;
 
     cropHeight -= 2.0 * change;
@@ -352,10 +354,14 @@ function addLiquidDrop() {
 
     //chnaging colour of liquid on reaching the desired volume and runonce so that it needs to run only once        
     if (vadded >= volume_titrant && runonce) {
+      console.log("volume_titrant--",volume_titrant);
       console.log("change colour");
       changetint = aftercolour;
       shownext=true;
       runonce = false;
+
+      clearInterval(dropIntervalID);
+      bureteTouched = false;
 
     }
     if (darkness <= 255 && runonce == false) {
@@ -434,14 +440,18 @@ function start() {
 
   //
   buretesize = buretesize + 0.1;
-  normality_titrant = random(1.5, 1.97);
+  normality_titrant = random(1.13, 1.53);
+  // normality_titrant = random(1.5, 1.97);
   console.log("Normality =", normality_titrant);
   //Calculating the height for change colour
   volume_titrant = (normality_titrant * volume_titrate) / (normality_titrate*10);
-  console.log("Volume Required", volume_titrant);
+  console.log("normality_titrant",normality_titrant)
+  console.log(" volume_titrate", volume_titrate);
+  console.log(" normality_titrate", normality_titrate);
+  console.log(" volume_titrant", volume_titrant);
   bureteTouched = !bureteTouched;
 
-  setInterval(addLiquidDrop, liquidDropInterval);
+  dropIntervalID = setInterval(addLiquidDrop, liquidDropInterval);
   slider2.attribute('disabled', true);
   slider3.attribute('disabled', true);
 
@@ -473,6 +483,17 @@ function drawppt(){
 }
 function nextpressed() {
   console.log('Hi');
+  const experimentData = {
+    normality_titrate: normality_titrate,
+    volume_titrant: volume_titrate,
+    vadded: vadded,
+    normality_titrant: normality_titrant
+  };
+  
+  ExperimentStorage.saveExperimentData(experimentData);
+  
+  console.log('Experiment data saved:', experimentData);
+  
   
   // Redirect to another HTML file when the function is called
   window.location.href = './First.html';

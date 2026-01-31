@@ -1,3 +1,9 @@
+const _storedExperiment = ExperimentStorage.getExperimentData() || {};
+const stored_var1 = parseFloat(_storedExperiment.normality_titrate || _storedExperiment.Normality_titrate || 0.16); // Normality of titrate
+const stored_var2 = parseFloat(_storedExperiment.volume_titrant || _storedExperiment.volume_titrate || _storedExperiment.volume_titrant2 || 20); // Volume of sample (ml)
+const stored_var3 = parseFloat(_storedExperiment.vadded || _storedExperiment.Vadded || 0); // Previously added volume (ml)
+console.log("stored_var3----------",stored_var3)
+
 let normality_titrant;// normality of the soln in flask (N)-----------------N1
 let volume_titrant; // Volume of soln added from burette determines the colour changed when vadded is equal to it(in mL)-------------------------V1
 let vadded = 0; // Volume of liquid added from burette increases with burette open(in mL)
@@ -66,6 +72,8 @@ let nxtx,nxty,nxtw,nxth;
 let shownext = false;
 let blinking = true;
 let blinkInterval = 200;
+
+let dropIntervalID
 
 
 
@@ -286,6 +294,14 @@ if (showppt==true){
   let valueDisplayElement = document.getElementById("valueDisplay");
   valueDisplayElement.innerText = floor(vadded * 100) / 100 + ' ml';
 
+  let OldDisplayElement = document.getElementById("oldDisplay");
+  OldDisplayElement.innerText = floor(stored_var3 * 100) / 100 + ' ml';
+
+  // document.getElementById("Normality").innerText = stored_var1 + " N";
+  // document.getElementById("Volume").innerText = stored_var2 + " ml";  
+
+  // document.getElementById("Volume").disabled = true;
+
 
   if (onerun) {
     setup();
@@ -325,11 +341,12 @@ function mouseReleased() {
 function changeArrowStyleToPointer() {
   nextButton.style.cursor = 'pointer';
 }
-
+var calculate=0;
 //This function keeps track of all the imcrement in flask as well as decrease in burette
 function addLiquidDrop() {
+  calculate++;
   let runonce = true;
-  if (liquidLevel >= 1 && bureteTouched == true) {
+  if (liquidLevel >= 1 && bureteTouched == true  && vadded <= volume_titrant) {
     liquidLevel -=  change*size/5;
 
     cropHeight -= 2.0 * change;
@@ -349,6 +366,9 @@ function addLiquidDrop() {
       changetint = aftercolour;
       shownext=true;
       runonce = false;
+
+      clearInterval(dropIntervalID);
+      bureteTouched = false;
 
     }
     if (darkness <= 255 && runonce == false) {
@@ -427,14 +447,15 @@ function start() {
 
   //
   buretesize = buretesize + 0.1;
-  normality_titrant = random(1.13, 1.53);
+  // normality_titrant = random(1.13, 1.53);
+  normality_titrant = random(1.5, 1.97);
   console.log("Normality =", normality_titrant);
   //Calculating the height for change colour
   volume_titrant = ((normality_titrant) * volume_titrate) / (normality_titrate*10);
   console.log("Volume Required", volume_titrant);
   bureteTouched = !bureteTouched;
 
-  setInterval(addLiquidDrop, liquidDropInterval);
+  dropIntervalID = setInterval(addLiquidDrop, liquidDropInterval);
   slider2.attribute('disabled', true);
   slider3.attribute('disabled', true);
 
@@ -466,9 +487,13 @@ function drawppt(){
 
 
 function calculateN2() {
+  if(calculate>0){
   const n1 = parseFloat(document.getElementById('n1').value);
+  console.log("n1----------",n1)
   const v1 = parseFloat(document.getElementById('v1').value);
+  console.log("v1----------",v1)
   const v2 = parseFloat(document.getElementById('v2').value);
+  console.log("v2----------",v2)
   
 
   if (isNaN(n1) || isNaN(v1) || isNaN(v2)) {
@@ -476,15 +501,12 @@ function calculateN2() {
       return;
   }
 
-  const n2 = (n1 * v1) / v2;
-
-  document.getElementById('result').innerHTML = `The calculated value of N2 is: ${n2.toFixed(2)}`;
+  const n2 = (n1 * v2) / v1;
+  // document.getElementById('result').innerHTML = `The calculated value of N2 is: ${n2.toFixed(2)} g/L`;
+  document.getElementById('result').innerHTML = `The calculated value of N2 is: N2 * 56.11 : ${n2.toFixed(2)} g/L`;
+  calculate--
+  } else{
+    console.log("Error ",calculate)
+    alert("First perform the experiment")
+  }
 }
-
-
-
-
-
-
-
-
